@@ -108,11 +108,12 @@ void JNICALL garbageCollectionStart(jvmtiEnv *jvmti_env) {
 
 extern "C" JNIEXPORT jstring JNICALL
 Java_com_wangxingxing_memorymonitor_MainActivity_stringFromJNI(
-        JNIEnv* env,
+        JNIEnv *env,
         jobject /* this */) {
     std::string hello = "Hello from C++ MemoryMonitor";
     return env->NewStringUTF(hello.c_str());
 }
+
 extern "C"
 JNIEXPORT void JNICALL
 Java_com_wangxingxing_memorymonitor_Monitor_agentInit(JNIEnv *env, jobject thiz, jstring _path) {
@@ -144,6 +145,7 @@ Java_com_wangxingxing_memorymonitor_Monitor_agentInit(JNIEnv *env, jobject thiz,
 
     env->ReleaseStringUTFChars(_path, path);
 }
+
 extern "C"
 JNIEXPORT void JNICALL
 Java_com_wangxingxing_memorymonitor_Monitor_agentRelease(JNIEnv *env, jobject thiz) {
